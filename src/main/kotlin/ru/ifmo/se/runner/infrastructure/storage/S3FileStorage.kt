@@ -2,7 +2,7 @@ package ru.ifmo.se.runner.infrastructure.storage
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import ru.ifmo.se.runner.infrastructure.storage.FileStorage
+import ru.ifmo.se.runner.application.port.out.FileStorage
 import software.amazon.awssdk.core.sync.RequestBody
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest

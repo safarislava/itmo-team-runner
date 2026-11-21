@@ -1,4 +1,4 @@
-package ru.ifmo.se.runner.infrastructure.storage
+package ru.ifmo.se.runner.application.port.out
 
 import java.time.Duration
 
