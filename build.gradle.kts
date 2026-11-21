@@ -7,7 +7,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
 }
 
-group = "ru.ifmo.se.api"
+group = "ru.ifmo.se.runner"
 version = "1.0-SNAPSHOT"
 
 repositories {
