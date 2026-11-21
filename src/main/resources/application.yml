@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: itmo-team-runner
+
+  profiles:
+    default: dev
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
