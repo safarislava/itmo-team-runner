@@ -12,6 +12,10 @@ class TaskEntity(
     @Id
     @Column(name = "task_id")
     override var id: UUID,
+    @Column(name = "author_id")
+    var authorId: UUID,
+    var name: String,
+    var description: String?,
     var timeLimit: Int,
     var memoryLimit: Int,
 ) : BasicEntity()
