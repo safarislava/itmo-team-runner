@@ -12,3 +12,9 @@ storage:
     access-key: minioadmin
     secret-key: minioadmin
     path-style-access-enabled: true
+
+runner:
+  isolate:
+    mode: docker
+    docker:
+      container: isolate-sandbox

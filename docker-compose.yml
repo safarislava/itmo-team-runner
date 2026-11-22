@@ -1,0 +1,9 @@
+services:
+  isolate-sandbox:
+    image: judge0/compilers:latest
+    container_name: isolate-sandbox
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    entrypoint: [ "sleep", "infinity" ]
