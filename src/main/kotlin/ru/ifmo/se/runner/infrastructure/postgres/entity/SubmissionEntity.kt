@@ -39,6 +39,12 @@ class SubmissionEntity(
     var attempt: Short,
     var aiScore: Short?,
     var submittedAt: Instant,
+    @Column(name = "lease_token")
+    var leaseToken: UUID?,
+    @Column(name = "lease_until")
+    var leaseUntil: Instant?,
+    @Column(name = "retry_count")
+    var retryCount: Short,
     @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @PrimaryKeyJoinColumn
     var response: SubmissionResponseEntity?,

@@ -29,6 +29,9 @@ class SubmissionEntityMapper(
             attempt = entity.attempt.toInt(),
             aiScore = entity.aiScore?.toInt(),
             submittedAt = entity.submittedAt,
+            leaseToken = entity.leaseToken,
+            leaseUntil = entity.leaseUntil,
+            retryCount = entity.retryCount.toInt(),
             response = entity.response?.let(responseMapper::toDomain),
         )
 
@@ -44,6 +47,9 @@ class SubmissionEntityMapper(
             attempt = domain.attempt.toShort(),
             aiScore = domain.aiScore?.toShort(),
             submittedAt = domain.submittedAt,
+            leaseToken = domain.leaseToken,
+            leaseUntil = domain.leaseUntil,
+            retryCount = domain.retryCount.toShort(),
             response = domain.response?.let(responseMapper::toEntity),
         )
 }
