@@ -21,5 +21,6 @@ class SubmissionRepositoryImpl(
     override fun save(submission: Submission): Submission = mapper.toDomain(repo.save(mapper.toEntity(submission)))
 
     @Transactional
-    override fun findNextQueued(): Submission? = repo.findFirstByStatusOrderBySubmittedAtAsc(SubmissionStatus.QUEUED)?.let(mapper::toDomain)
+    override fun findQueuedById(id: SubmissionId): Submission? =
+        repo.findByIdAndStatus(id.value, SubmissionStatus.QUEUED)?.let(mapper::toDomain)
 }

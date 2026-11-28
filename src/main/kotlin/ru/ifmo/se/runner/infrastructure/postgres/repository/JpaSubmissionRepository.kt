@@ -13,5 +13,8 @@ import java.util.UUID
 interface JpaSubmissionRepository : JpaRepository<SubmissionEntity, UUID> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @QueryHints(QueryHint(name = AvailableSettings.JAKARTA_LOCK_TIMEOUT, value = "-2"))
-    fun findFirstByStatusOrderBySubmittedAtAsc(status: SubmissionStatus): SubmissionEntity?
+    fun findByIdAndStatus(
+        id: UUID,
+        status: SubmissionStatus,
+    ): SubmissionEntity?
 }

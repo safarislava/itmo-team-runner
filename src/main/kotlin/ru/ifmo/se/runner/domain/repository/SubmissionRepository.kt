@@ -10,5 +10,5 @@ interface SubmissionRepository {
 
     fun save(submission: Submission): Submission
 
-    fun findNextQueued(): Submission?
+    fun findQueuedById(id: SubmissionId): Submission?
 }
