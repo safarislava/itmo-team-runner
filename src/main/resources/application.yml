@@ -17,5 +17,13 @@ spring:
         format_sql: true
 
 runner:
-  polling:
-    interval-ms: 1000
+  isolate:
+    command-timeout-ms: 60000
+  lease:
+    ttl-ms: 90000
+    renew-interval-ms: 30000
+    max-duration-ms: 600000
+    max-retries: 3
+  submission-queue:
+    consumer-group: "runners-group"
+    poll-timeout-ms: 2000
