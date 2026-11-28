@@ -17,5 +17,11 @@ spring:
         format_sql: true
 
 runner:
-  polling:
-    interval-ms: 1000
+  submission-queue:
+    consumer-group: "runners-group"
+    poll-timeout-ms: 2000
+    recovery:
+      enabled: true
+      delay-ms: 60000
+      min-idle-ms: 300000
+      batch-size: 100
