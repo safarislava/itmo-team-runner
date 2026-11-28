@@ -3,6 +3,7 @@ package ru.ifmo.se.runner.application.service
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import ru.ifmo.se.runner.domain.model.Submission
+import ru.ifmo.se.runner.domain.model.SubmissionId
 import ru.ifmo.se.runner.domain.model.SubmissionStatus
 import ru.ifmo.se.runner.domain.repository.SubmissionRepository
 
@@ -11,8 +12,8 @@ class SubmissionQueueService(
     private val submissionRepository: SubmissionRepository,
 ) {
     @Transactional
-    fun claimNextSubmission(): Submission? =
-        submissionRepository.findNextQueued()?.let { submission ->
+    fun claimSubmission(submissionId: SubmissionId): Submission? =
+        submissionRepository.findQueuedById(submissionId)?.let { submission ->
             submissionRepository.save(submission.copy(status = SubmissionStatus.RUNNING))
         }
 }

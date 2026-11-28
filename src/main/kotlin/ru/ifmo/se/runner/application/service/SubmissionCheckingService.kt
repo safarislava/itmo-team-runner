@@ -9,8 +9,8 @@ import ru.ifmo.se.runner.application.port.out.FileStorage
 import ru.ifmo.se.runner.application.port.out.TestExecutor
 import ru.ifmo.se.runner.domain.exception.LanguageNotFoundException
 import ru.ifmo.se.runner.domain.exception.TaskNotFoundException
-import ru.ifmo.se.runner.domain.model.RunnerServerId
 import ru.ifmo.se.runner.domain.model.Submission
+import ru.ifmo.se.runner.domain.model.SubmissionId
 import ru.ifmo.se.runner.domain.model.SubmissionResponse
 import ru.ifmo.se.runner.domain.model.SubmissionStatus
 import ru.ifmo.se.runner.domain.model.SubmissionVerdict
@@ -30,8 +30,8 @@ class SubmissionCheckingService(
     private val testExecutor: TestExecutor,
     private val submissionRepository: SubmissionRepository,
 ) {
-    fun processNextSubmission(): Submission? {
-        val submission = queueService.claimNextSubmission() ?: return null
+    fun processSubmission(submissionId: SubmissionId): Submission? {
+        val submission = queueService.claimSubmission(submissionId) ?: return null
 
         val result =
             runCatching { testExecutor.execute(buildContext(submission)) }
